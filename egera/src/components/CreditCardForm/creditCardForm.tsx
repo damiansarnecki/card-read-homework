@@ -79,7 +79,7 @@ export const CreditCardForm = () => {
                 placeholder={"John Doe"}
                 name={"name"}
                 label={"Card owner name"}
-               
+                max={50}
               />
               <CustomField
                 placeholder={"1234 1234 1234 1234"}

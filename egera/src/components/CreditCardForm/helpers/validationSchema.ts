@@ -3,7 +3,8 @@ import valid from "card-validator";
 
 export const VALIDATION_SCHEMA = Yup.object().shape({
   name: Yup.string()
-    .min(3, "Name is too short")
+    .min(3, "Name is too short").
+	max(30, "Name is too long")
     .matches(/\w+\s\w+/, "You must enter full name")
     .required("Name is required"),
   cardNumber: Yup.string()
