@@ -38,14 +38,14 @@ export const CreditCardForm = () => {
       validate={() => {
         setSuccess(false);
       }}
-      onSubmit={async (values) => {
+      onSubmit={async (values, { resetForm }) => {
         if (isLoading) return;
 
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
           setSuccess(true);
-
+          resetForm()
           console.log("Result", values);
         }, 2000);
       }}
@@ -79,6 +79,7 @@ export const CreditCardForm = () => {
                 placeholder={"John Doe"}
                 name={"name"}
                 label={"Card owner name"}
+               
               />
               <CustomField
                 placeholder={"1234 1234 1234 1234"}
@@ -92,11 +93,10 @@ export const CreditCardForm = () => {
               />
               <Grid templateColumns="1fr 1fr" gap="20px">
                 <CustomField
-                  placeholder={"xx/xx"}
+                  placeholder={"mm/yy"}
                   name={"expirationDate"}
                   label={"Expiration date"}
                   value={(props as any).values.expirationDate
-
                     .replace(/^(\d{2})(\d+)/g, "$1/")
                     .trim()}
                   max={5}
@@ -104,6 +104,7 @@ export const CreditCardForm = () => {
                 <CustomField
                   placeholder={"000"}
                   name={"cvv"}
+                  hidden={true}
                   label={"CVV"}
                   max={4}
                 />

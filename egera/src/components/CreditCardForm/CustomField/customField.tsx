@@ -14,14 +14,14 @@ export const CustomField = ({
   label,
   value,
   max,
-  hidden = false
+  hidden = false,
 }: {
   name: string;
   placeholder: string;
   label: string;
   value?: string;
   max?: number;
-  hidden?: boolean
+  hidden?: boolean;
 }) => {
   const { errors, touched, validateField, values } = useFormikContext();
 
@@ -60,8 +60,7 @@ export const CustomField = ({
           backgroundColor="none"
           _placeholder={{ color: "rgba(0,0,0,0.2)" }}
           transition="0s"
-          value={value}
-          
+          value={value ?? (values as any)[name]}
           border="none"
           maxLength={max ?? 40}
           borderBottom={` ${
@@ -69,10 +68,13 @@ export const CustomField = ({
               ? "1px solid #e74c3c"
               : "1px solid rgba(0,0,0,0.2)"
           }`}
+          secureText
           h="35px"
           borderRadius="0px"
           id={name}
           name={name}
+          type={hidden ? "password" : "text"}
+          letterSpacing={hidden ? "4px" : "auto"}
           fontSize="16px"
           _hover={{
             borderColor:
