@@ -2,12 +2,6 @@ import { CheckCircleIcon, CheckIcon } from "@chakra-ui/icons";
 import { Box, CheckboxIcon, Flex, FormLabel, Input } from "@chakra-ui/react";
 import { ErrorMessage, Field, useFormikContext } from "formik";
 
-enum FIELD_COLORS {
-  success = "#2ecc71",
-  neutral = "rgba(0,0,0,0.2)",
-  error = '"#2ecc71"',
-}
-
 export const CustomField = ({
   name,
   placeholder,
