@@ -7,8 +7,9 @@ export const VALIDATION_SCHEMA = Yup.object().shape({
     .matches(/\w+\s\w+/, "You must enter full name")
     .required("Name is required"),
   cardNumber: Yup.string()
-    .matches(/^[0-9 ]+$/, "Ivalid card number")
-    .length(19, "Invalid card number length"),
+    .matches(/^[0-9 ]+$/, "Ivalid card number") // Only basic validation for now
+    .length(19, "Invalid card number length")
+    .required("Card number is required"),
   expirationDate: Yup.string()
     .matches(
       /^(0[1-9]|1[0-2])\/?(([0-9]{4}|[0-9]{2})$)/,
